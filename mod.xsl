@@ -2,9 +2,27 @@
     <xsl:template match="/root" name="wurui.product-brief">
         <!-- className 'J_OXMod' required  -->
         <div class="J_OXMod oxmod-product-brief" ox-mod="product-brief">
-            <h1>
-                This is mod product-brief;
-            </h1>
+            <ul>
+                <xsl:for-each select="data/ecom-products/i">
+                    <li>
+                        <a href="{LINK/detail}">
+                            <span class="img" style="background-image:url({media/i[type='image']/src}@!w240)"></span>
+                        </a>
+                        <h4 class="title">
+                        	<a href="{LINK/detail}">
+                            <xsl:value-of select="title"/>
+                            </a>
+                        </h4>
+                        <p class="brief">
+                        	<a href="{LINK/detail}">
+                            <xsl:value-of select="brief"/>
+                            </a>
+                        </p>
+                       
+                    </li>
+                </xsl:for-each>
+            </ul>
+
         </div>
     </xsl:template>
 </xsl:stylesheet>
